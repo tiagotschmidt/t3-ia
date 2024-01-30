@@ -4,7 +4,7 @@ import solucao as solucao
 
 
 class TestaSolucao(unittest.TestCase):
-    
+
     def test_funcao_sucessor(self):
         """
         Testa a funcao sucessor para o estado "2_3541687"
@@ -15,8 +15,8 @@ class TestaSolucao(unittest.TestCase):
         succ_esperados = {("abaixo", "2435_1687"), ("esquerda", "_23541687"), ("direita", "23_541687")}
 
         sucessores = solucao.sucessor("2_3541687")  # obtem os sucessores chamando a funcao implementada
-        self.assertEqual(3, len(sucessores))     # verifica se foram retornados 3 sucessores
-        for s in sucessores:                     # verifica se os sucessores retornados estao entre os esperados
+        self.assertEqual(3, len(sucessores))  # verifica se foram retornados 3 sucessores
+        for s in sucessores:  # verifica se os sucessores retornados estao entre os esperados
             self.assertIn(s, succ_esperados)
 
     def test_funcao_expande(self):
@@ -53,7 +53,6 @@ class TestaSolucao(unittest.TestCase):
 
         return response
 
-
     def test_run_astar_hamming(self):
         """
         Testa o A* com dist. Hamming em um estado com solução e outro sem solução.
@@ -79,7 +78,7 @@ class TestaSolucao(unittest.TestCase):
 
         # nao ha solucao a partir do estado 185423_67
         self.assertIsNone(self.run_algorithm(solucao.astar_manhattan, "185423_67"))
-    
+
     def test_action_order(self):
         """
         Testa se A* retornam a sequencia de acoes na ordem correta
@@ -89,6 +88,7 @@ class TestaSolucao(unittest.TestCase):
 
         for alg in [solucao.astar_hamming, solucao.astar_manhattan]:
             self.assertEqual(solucao_otima, self.run_algorithm(alg, estado))
+
 
 if __name__ == '__main__':
     unittest.main()
