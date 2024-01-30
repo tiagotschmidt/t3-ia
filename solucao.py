@@ -233,6 +233,10 @@ def astar_new_heuristic(estado: str) -> list[str]:
 if __name__ == '__main__':
     ESTADO_INICIAL = "2_3541687"
 
+    print(
+        """| Algoritmo | Nós expandidos | Tempo decorrido (s) | Custo |
+        |-----------|----------------|---------------------|-------|""")
+
     # Testando Hamming
     timer = time.time()
     resultado = astar_hamming(ESTADO_INICIAL)
