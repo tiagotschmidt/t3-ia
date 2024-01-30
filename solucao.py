@@ -1,3 +1,4 @@
+import time
 from typing import Set, Literal, Callable, Optional
 from collections import deque
 from queue import PriorityQueue
@@ -227,3 +228,17 @@ def astar_new_heuristic(estado: str) -> list[str]:
     """
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
+
+
+if __name__ == '__main__':
+    ESTADO_INICIAL = "2_3541687"
+
+    # Testando Hamming
+    timer = time.time()
+    resultado = astar_hamming(ESTADO_INICIAL)
+    print(f"| Hamming | {len(resultado)} | {time.time() - timer} | ?? |")
+
+    # Testando Manhattan
+    timer = time.time()
+    resultado = astar_manhattan(ESTADO_INICIAL)
+    print(f"| Manhattan | {len(resultado)} | {time.time() - timer} | ?? |")
